@@ -97,3 +97,8 @@ enough disk space by creating a new volume via the Openstack user interface, att
 Lab Instance, and mounting it into the filesystem, using /mnt as mountpoint. Hint, you can use
 “dmesg”, “fdisk” to get info about your new virtual disk, and “mkfs.ext4” and “mount” to format and
 mount it.*
+
+
+´´´
+sudo dd if=/dev/zero of=testfile bs=1G count=10
+´´
