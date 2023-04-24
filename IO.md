@@ -104,12 +104,12 @@ mount it.*
 The dd tool is a command-line utility for Unix-like operating systems used to convert and copy files. It can also be used for low-level operations such as copying data between devices, creating disk images, and benchmarking disk performance.
 
 
-1. Create a new Volume in openstack:
-a. ![image](https://user-images.githubusercontent.com/79651776/234093992-90ea27f7-a5d3-4820-8ff4-81bfaefad427.png)
-b. ![image](https://user-images.githubusercontent.com/79651776/234094016-e3a76321-9093-4602-b0c6-893fec60c043.png)
-c. ![image](https://user-images.githubusercontent.com/79651776/234094155-43930e9f-9d4c-4f3e-94da-401873d8e324.png)
-d. ![image](https://user-images.githubusercontent.com/79651776/234094310-8fab6d3c-27ae-4817-89f5-d43d4c6d58e5.png)
-e. ![image](https://user-images.githubusercontent.com/79651776/234094271-8c9fcde9-e4b9-43de-9fb2-2c8b879a4300.png)
+1. Create a new Volume in openstack: <br>
+a. ![image](https://user-images.githubusercontent.com/79651776/234093992-90ea27f7-a5d3-4820-8ff4-81bfaefad427.png) <br>
+b. ![image](https://user-images.githubusercontent.com/79651776/234094016-e3a76321-9093-4602-b0c6-893fec60c043.png) <br>
+c. ![image](https://user-images.githubusercontent.com/79651776/234094155-43930e9f-9d4c-4f3e-94da-401873d8e324.png) <br>
+d. ![image](https://user-images.githubusercontent.com/79651776/234094310-8fab6d3c-27ae-4817-89f5-d43d4c6d58e5.png) <br>
+e. ![image](https://user-images.githubusercontent.com/79651776/234094271-8c9fcde9-e4b9-43de-9fb2-2c8b879a4300.png) <br>
 
 2. Use the following command to get informations about the volumes 
 ```
@@ -164,12 +164,15 @@ ionice is a command that allows to set the priority of a process.
 ```
 ionice -c <class> -n <priority> <command>
 ```
-**-c class**
+**-c class** 
 The scheduling class. 0 for none, 1 for real time, 2 for best-effort, 3 for idle.
-**-n classdata**
+<br>
+**-n classdata** 
 The scheduling class data. This defines the class data, if the class accepts an argument. For real time and best-effort, 0-7 is valid data.
-**p pid**
+<br>
+**p pid** 
 Pass in process PID(s) to view or change already running processes. If this argument is not given, ionice will run the listed program with the given parameters.
+<br>
 **-t**
 Ignore failure to set requested priority. If COMMAND or PID(s) is specified, run it even in case it was not possible to set desired scheduling priority, what can happen due to insufficient privilegies or old kernel version.
 
