@@ -106,6 +106,24 @@ sudo dd if=/dev/zero of=testfile bs=1G count=10
 
 .......
 
+## Task 3 – Linux Device Model and UDEV
+*Navigate to /sys and familiarize yourself with the structure. Look for, and understand the content of
+the “uevent” file for the block device (volume) created for the IO performance task.*  
+
+*Enter the /dev directory and look for the device file that represents the volume. What can you see
+from the file attributes?*  
+
+*UDEV uses /sys to create devices files in /dev upon the appearance (e.g. hotplugged) of a device.
+List the rule files of UDEV that define this on-demand behavior. What happens if you attach a mouse
+as IO input device?*  
+
+*Remove the volume (detach it via OpenStack User Interface) created for the IO performance testing
+before and look for changes in the /sys and /dev directory.*  
+
+
+
+
+
 
 ## Task 4 – Example IO Device: Hard Drive
 iostat (see man iostat ) is a useful tool to provide low-level disk statistics.  
