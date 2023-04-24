@@ -168,7 +168,7 @@ dd if=/dev/zero of=speedtest bs=10M count=100
 rm speedtest  
 dd if=/dev/zero of=speedtest bs=10M count=100 conv=fdatasync*  
 ● How can you explain the difference in output?    
-conv=fdatasync ensures, that all the data from cache has been written to the drive before the process is shown as completed. Important when device is removable and data could be lost when it is removed to early.     
+conv=fdatasync ensures, that all the data from cache has been written to the drive before the process is shown as completed. Important when device is removable and data could be lost when it is removed too early.     
 ● What is a fsync() operation?    
 In addition to the function of fdatasync, it also transfers all the metadata information associated with the transfered files.  
 
