@@ -67,15 +67,15 @@ THE IRQ is 11, it's shared between multiple devices like USB, ethernet controlle
 analyze IO performance, like iostat and iotop. Familiarize yourself with these two by running them
 and understanding their outputs.*
 
-´´´
+```
 iostat
-´´´
+```
 ![Screenshot from 2023-04-21 11-39-33](https://user-images.githubusercontent.com/79651776/233603220-afd8ef69-eb58-4593-b43e-37aa5c637395.png)
 
 
-´´´
+```
 iotop
-´´´
+```
 ![Screenshot from 2023-04-21 11-38-27](https://user-images.githubusercontent.com/79651776/233603006-0b712851-061a-4a0d-8e69-f18c36d5ec04.png)
 
 *Now create a scenario in which you create IO load. Try to understand and use the following
@@ -83,9 +83,9 @@ command: “wc /dev/zero &” . Then analyze the impact via iostat and iotop for
 Record and discuss what you notice*
 
 use: 
-´´´
+```
 wc /dev/zero &
-´´´
+```
 & to run it in the background
 
 Using iotop and iostat shows, that there is no load. The reason behind that is, it's a virtual device, there is no physical workload on an io device.
@@ -99,6 +99,7 @@ Lab Instance, and mounting it into the filesystem, using /mnt as mountpoint. Hin
 mount it.*
 
 
-´´´
+```
 sudo dd if=/dev/zero of=testfile bs=1G count=10
-´´
+```
+
