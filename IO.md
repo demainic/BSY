@@ -134,7 +134,7 @@ iostat (see man iostat ) is a useful tool to provide low-level disk statistics.
 ● Pick one hard drive of your system and display only the device utilization report in a human
 readable format and using megabytes per second.
 ```
-iostat -f directory -d  -h -m
+iostat -d -h -m [device]
 ```
 ● What does the output tell you?  
 ● How can you only show one specific device?  
