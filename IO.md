@@ -115,25 +115,26 @@ readable format and using megabytes per second.
 ```
 iostat -f directory -d  -h -m
 ```
-● What does the output tell you?
-● How can you only show one specific device?
+● What does the output tell you?  
+● How can you only show one specific device?  
 ● How can you show further extended details of that specific device i.e. sub-devices (hint:
-/proc)?
-● Investigate in the /proc file system where disk statistics are taken by iostat for display.
-● What is the await field and why is it important?
-  The average time (in milliseconds) for I/O requests  issued to the device to be served. 
-  This includes  the time spent by the requests in queue and the time spent servicing them.
-● If rqm/s is > 0 what does this indicate? What does it hint about the workload?
+/proc)?  
+● Investigate in the /proc file system where disk statistics are taken by iostat for display.  
+● What is the await field and why is it important?  
+  The average time (in milliseconds) for I/O requests  issued to the device to be served.   
+  This includes  the time spent by the requests in queue and the time spent servicing them.    
+ 
+● If rqm/s is > 0 what does this indicate? What does it hint about the workload?  
 The number of I/O requests merged per second that were queued to the device. Indicates a higher workload
 
-*Now, measure your disk write output with dd (c.f. man dd):
-dd if=/dev/zero of=speedtest bs=10M count=100
-rm speedtest
-dd if=/dev/zero of=speedtest bs=10M count=100 conv=fdatasync*
-● How can you explain the difference in output?
-conv=fdatasync ensures, that all the data from cache has been written to the drive before the process is shown as completed. Important when device is removable and data could be lost when it is removed to early. 
-● What is a fsync() operation?
-In addition to the function of fdatasync, it also transfers all the metadata information associated with the transfered files.
+*Now, measure your disk write output with dd (c.f. man dd):  
+dd if=/dev/zero of=speedtest bs=10M count=100  
+rm speedtest  
+dd if=/dev/zero of=speedtest bs=10M count=100 conv=fdatasync*  
+● How can you explain the difference in output?    
+conv=fdatasync ensures, that all the data from cache has been written to the drive before the process is shown as completed. Important when device is removable and data could be lost when it is removed to early.     
+● What is a fsync() operation?    
+In addition to the function of fdatasync, it also transfers all the metadata information associated with the transfered files.  
 
 
 
