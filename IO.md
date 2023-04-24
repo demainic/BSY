@@ -101,12 +101,109 @@ Lab Instance, and mounting it into the filesystem, using /mnt as mountpoint. Hin
 “dmesg”, “fdisk” to get info about your new virtual disk, and “mkfs.ext4” and “mount” to format and
 mount it.*
 
+The dd tool is a command-line utility for Unix-like operating systems used to convert and copy files. It can also be used for low-level operations such as copying data between devices, creating disk images, and benchmarking disk performance.
+
+
+1. Create a new Volume in openstack:
+a. ![image](https://user-images.githubusercontent.com/79651776/234093992-90ea27f7-a5d3-4820-8ff4-81bfaefad427.png)
+b. ![image](https://user-images.githubusercontent.com/79651776/234094016-e3a76321-9093-4602-b0c6-893fec60c043.png)
+c. ![image](https://user-images.githubusercontent.com/79651776/234094155-43930e9f-9d4c-4f3e-94da-401873d8e324.png)
+d. ![image](https://user-images.githubusercontent.com/79651776/234094310-8fab6d3c-27ae-4817-89f5-d43d4c6d58e5.png)
+e. ![image](https://user-images.githubusercontent.com/79651776/234094271-8c9fcde9-e4b9-43de-9fb2-2c8b879a4300.png)
+
+2. Use the following command to get informations about the volumes 
+```
+dmsg
+```
+3. Next is creating a new partition with:
+```
+sudo fdisk /dev/vdb
+```
+![image](https://user-images.githubusercontent.com/79651776/234096199-2bcc3512-7e02-4230-a5bb-a03e671b5365.png)
+
+4. Now the new partition should be formated:
+```
+sudo mkfs.ext4 /dev/vdb1
+```
+![image](https://user-images.githubusercontent.com/79651776/234096419-7cc41c9b-2d37-4b1b-b0f2-2cc8b2b2f317.png)
+
+5. Next it should be mounted:
+```
+sudo mkdir /mnt
+sudo mount /dev/vdb1 /mnt
+```
+6. In the new partition he 10gb files cant be created:
 
 ```
-sudo dd if=/dev/zero of=testfile bs=1G count=10
+sudo dd if=/dev/zero of=/mnt/file1 bs=1G count=10
+sudo dd if=/dev/zero of=/mnt/file2 bs=1G count=10
 ```
 
+*On your new disk, create in parallel a number of files, using the following command. “dd
+if=/dev/zero of=/mnt/iotest/testfile_n bs=1024 count=1000000 &” What
+exactly is this command doing? What do you have to modify in order to use this command in
+parallel? Perhaps you want to run this as a shell script, simply put this command line-by-line into a
+text file and execute the text file (aka bash script file) on the shell. Once load is created, check IO
+performance. Discuss the results and verify your understanding*
 
+
+This Command creates a file named "testfile_n". The if option sets the input file, in this case alle zeros. The of sets the output file. bs = blocksize and count = number of blocks.
+To Use this command first you neet to create the folder and five the ubuntu user ownership. To make it parallel you can use a loop:
+
+```
+sudo mkdir /mnt/iotest
+sudo chown ubuntu:ubuntu /mnt/iotest
+for n in {1..5}; do dd if=/dev/zero of=/mnt/iotest/testfile_$n bs=1024 count=1000000 & done
+```
+*Now experiment with the command “ionice”. Add different schedulers with different priorities to your
+operations and verify the result. Can you actually run one process faster than another? If yes,
+explain, if not explain too. Hint, “less /sys/block/vXXX/queue/scheduler” and
+https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers*
+
+ionice is a command that allows to set the priority of a process.
+```
+ionice -c <class> -n <priority> <command>
+```
+**-c class**
+The scheduling class. 0 for none, 1 for real time, 2 for best-effort, 3 for idle.
+**-n classdata**
+The scheduling class data. This defines the class data, if the class accepts an argument. For real time and best-effort, 0-7 is valid data.
+**p pid**
+Pass in process PID(s) to view or change already running processes. If this argument is not given, ionice will run the listed program with the given parameters.
+**-t**
+Ignore failure to set requested priority. If COMMAND or PID(s) is specified, run it even in case it was not possible to set desired scheduling priority, what can happen due to insufficient privilegies or old kernel version.
+
+(from https://linux.die.net/man/1/ionice)
+
+*Blocking and Non-Blocking Devices
+Interpret and understand the code below. What is the use case of the function select()?*
+```
+
+#include <stdio.h>, #include <stdlib.h>, #include <sys/time.h>, #include
+<sys/types.h>, #include <unistd.h>
+int main(void)
+{
+fd_set rfds;
+struct timeval tv;
+int retval;
+/* Set rfds to STDIN (fd 0) */
+FD_ZERO(&rfds); FD_SET(0, &rfds);
+/* Wait up to five seconds. */
+tv.tv_sec = 5;
+tv.tv_usec = 0;
+retval = select(1, &rfds, NULL, NULL, &tv);
+if (retval == -1)
+perror("select()");
+else if (retval)
+printf("OK");
+/* FD_ISSET(0, &rfds) will be true. */
+else
+printf("Not OK within five seconds.\n");
+exit(EXIT_SUCCESS);
+}
+```
+
+The code perform a non-blocking I/O operation. It waits for 5 seconds to get userinput, without blocking the device. 
 .......
 
 ## Task 3 – Linux Device Model and UDEV
