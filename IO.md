@@ -24,9 +24,9 @@ and analyse some and discuss their origin and features.*
 
 To identfy logical IO devices use the following command
 
-´´´
+```
 lspci
-´´´
+```
 The "Virtio" states, that as an example the "Ethernet controller" is a virtual IO device.
 
 ![Screenshot from 2023-04-21 11-06-33](https://user-images.githubusercontent.com/79651776/233595454-666b0a24-6e81-4da1-a711-44295c68ce6b.png)
@@ -39,9 +39,9 @@ The "Virtio" states, that as an example the "Ethernet controller" is a virtual I
 *Understand the output of /proc/interrupts and discuss the columns in detail.*
 
 Use the following to open /proc/interrupts:
-´´´
+``
 vim /proc/interrupts
-´´´
+``
 ![Screenshot from 2023-04-21 11-11-16](https://user-images.githubusercontent.com/79651776/233596592-f1ffd7bc-7fd1-4058-ba6e-d12fd5cb0cb8.png)
 
 1. CPU: Shows the the number of interupts per CPU
@@ -50,15 +50,16 @@ vim /proc/interrupts
 
 *Print the evolution of this file in real-time onto your screen. Hint, you may find the “watch” tool useful.*
 
-´´´
+```
 watch -n 1 cat /proc/interrupts
-´´´
+```
 *Verify your understanding using “lspci -vvv”, check for instance, the USB configuration. What can
 you tell about the interrupt (IRQ) configuration?*
 
-´´´
+```
 lspci -vvv
-´´´
+```
+
 THE IRQ is 11, it's shared between multiple devices like USB, ethernet controller or SCSI storage controller
 
 **Shared IO Access**
@@ -70,12 +71,14 @@ and understanding their outputs.*
 ```
 iostat
 ```
+
 ![Screenshot from 2023-04-21 11-39-33](https://user-images.githubusercontent.com/79651776/233603220-afd8ef69-eb58-4593-b43e-37aa5c637395.png)
 
 
 ```
 iotop
 ```
+
 ![Screenshot from 2023-04-21 11-38-27](https://user-images.githubusercontent.com/79651776/233603006-0b712851-061a-4a0d-8e69-f18c36d5ec04.png)
 
 *Now create a scenario in which you create IO load. Try to understand and use the following
