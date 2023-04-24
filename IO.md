@@ -137,9 +137,24 @@ readable format and using megabytes per second.
 iostat -d -h -m [device]
 ```
 ● What does the output tell you?  
-● How can you only show one specific device?  
+tps:        Transfers (I/O requests) per second issued to the device  
+MB_read/s:  Amount of data read from the device in megabytes per second.  
+MB_wrtn/s:  Amount of data written to the device in megabytes per second.    
+MB_read:    The total number of megabytes read since system was booted.  
+MB_wrtn:    The total number of megabytes written since system was booted.  
+MB_dscd/s:  The amount of discarded requests in megabyte per second.   
+MB_dscd:    The amount of discarded requests in megabyte since system was booted.
+
+● How can you only show one specific device?
+```
+iostat -d -h -m [device]
+```
 ● How can you show further extended details of that specific device i.e. sub-devices (hint:
-/proc)?  
+/proc)?
+```
+iostat -d -h -m -p [device]
+```
+
 ● Investigate in the /proc file system where disk statistics are taken by iostat for display.  
 ● What is the await field and why is it important?  
   The average time (in milliseconds) for I/O requests  issued to the device to be served.   
