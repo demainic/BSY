@@ -213,7 +213,7 @@ exit(EXIT_SUCCESS);
 ```
 
 The code perform a non-blocking I/O operation. It waits for 5 seconds to get userinput, without blocking the device. 
-.......
+
 
 ## Task 3 – Linux Device Model and UDEV
 *Navigate to /sys and familiarize yourself with the structure. Look for, and understand the content of
