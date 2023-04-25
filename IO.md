@@ -113,7 +113,7 @@ e. ![image](https://user-images.githubusercontent.com/79651776/234094271-8c9fcde
 
 2. Use the following command to get informations about the volumes 
 ```
-dmsg
+dmesg
 ```
 3. Next is creating a new partition with:
 ```
