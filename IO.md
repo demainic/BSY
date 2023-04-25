@@ -242,7 +242,7 @@ from the file attributes?*
 ```
 ls -l | grep vdb
 ```
-brw-rw---- 1 root disk    252,  16 Apr 25 15:14 vdb
+brw-rw---- 1 root disk    252,  16 Apr 25 15:14 vdb  
 brw-rw---- 1 root disk    252,  17 Apr 25 15:15 vdb1
 
 b = block device rw = read and write, vdb1 = 1 partition  
