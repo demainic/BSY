@@ -240,15 +240,26 @@ PARTN: partition index
 *Enter the /dev directory and look for the device file that represents the volume. What can you see
 from the file attributes?*
 ```
-ls -l
+ls -l | grep vdb
 ```
 brw-rw---- 1 root disk    252,  16 Apr 25 15:14 vdb
+brw-rw---- 1 root disk    252,  17 Apr 25 15:15 vdb1
 
-b = block device rw = read and write  
+b = block device rw = read and write, vdb1 = 1 partition  
 
 *UDEV uses /sys to create devices files in /dev upon the appearance (e.g. hotplugged) of a device.
 List the rule files of UDEV that define this on-demand behavior. What happens if you attach a mouse
-as IO input device?*  
+as IO input device?*
+ 
+```cd /lib/udev/rules.d/```  
+```ls | grep hot```   
+10-cloud-init-hook-hotplug.rules   
+40-vm-hotadd.rules
+
+
+
+
+
 
 *Remove the volume (detach it via OpenStack User Interface) created for the IO performance testing
 before and look for changes in the /sys and /dev directory.*  
