@@ -223,7 +223,7 @@ the “uevent” file for the block device (volume) created for the IO performan
 cd /sys/block/vdb/vdb1
 ```
 ```
-vim uevent
+cat uevent
 ```
 MAJOR=252  
 MINOR=17  
