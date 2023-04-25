@@ -115,6 +115,12 @@ e. ![image](https://user-images.githubusercontent.com/79651776/234094271-8c9fcde
 ```
 dmesg
 ```
+or 
+```
+lsblk
+```
+to show all volumes
+
 3. Next is creating a new partition with:
 ```
 sudo fdisk /dev/vdb
