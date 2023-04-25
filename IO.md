@@ -273,12 +273,12 @@ vdb and vdb1 are no longer visible in /dev
 ## Task 4 – Example IO Device: Hard Drive
 iostat (see man iostat ) is a useful tool to provide low-level disk statistics.  
 
-● Pick one hard drive of your system and display only the device utilization report in a human
-readable format and using megabytes per second.
+● *Pick one hard drive of your system and display only the device utilization report in a human
+readable format and using megabytes per second.*
 ```
 iostat -d -h -m [device]
 ```
-● What does the output tell you?  
+● *What does the output tell you?*  
 tps:        Transfers (I/O requests) per second issued to the device  
 MB_read/s:  Amount of data read from the device in megabytes per second.  
 MB_wrtn/s:  Amount of data written to the device in megabytes per second.    
@@ -287,17 +287,17 @@ MB_wrtn:    The total number of megabytes written since system was booted.
 MB_dscd/s:  The amount of discarded requests in megabyte per second.   
 MB_dscd:    The amount of discarded requests in megabyte since system was booted.
 
-● How can you only show one specific device?
+● *How can you only show one specific device?*
 ```
 iostat -d -h -m [device]
 ```
-● How can you show further extended details of that specific device i.e. sub-devices (hint:
-/proc)?
+● *How can you show further extended details of that specific device i.e. sub-devices (hint:
+/proc)?*
 ```
 iostat -d -h -m -p [device]
 ```
 
-● Investigate in the /proc file system where disk statistics are taken by iostat for display.  
+● *Investigate in the /proc file system where disk statistics are taken by iostat for display.*  
 ```
 root@lab-io:/proc# cat diskstats
    7       0 loop0 1654 0 3894 9260 0 0 0 0 0 1084 7328 0 0 0 0
@@ -313,20 +313,20 @@ root@lab-io:/proc# cat diskstats
  252      14 vda14 214 0 1960 134 0 0 0 0 0 200 20 0 0 0 0
  252      15 vda15 886 0 17966 1647 2 0 2 0 0 672 776 0 0 0 0
  ```
-● What is the await field and why is it important?  
+● *What is the await field and why is it important?*  
   The average time (in milliseconds) for I/O requests  issued to the device to be served.   
   This includes  the time spent by the requests in queue and the time spent servicing them.    
  
-● If rqm/s is > 0 what does this indicate? What does it hint about the workload?  
+● *If rqm/s is > 0 what does this indicate? What does it hint about the workload?*  
 The number of I/O requests merged per second that were queued to the device. Indicates a higher workload
 
 *Now, measure your disk write output with dd (c.f. man dd):  
 dd if=/dev/zero of=speedtest bs=10M count=100  
 rm speedtest  
 dd if=/dev/zero of=speedtest bs=10M count=100 conv=fdatasync*  
-● How can you explain the difference in output?    
+● *How can you explain the difference in output?*    
 conv=fdatasync ensures, that all the data from cache has been written to the drive before the process is shown as completed. Important when device is removable and data could be lost when it is removed too early.     
-● What is a fsync() operation?    
+● *What is a fsync() operation?*    
 In addition to the function of fdatasync, it also transfers all the metadata information associated with the transfered files.  
 
 
