@@ -252,19 +252,20 @@ List the rule files of UDEV that define this on-demand behavior. What happens if
 as IO input device?*
  
 ```cd /lib/udev/rules.d/```  
-```ls | grep hot```   
+```ls | grep hot```  
+
 10-cloud-init-hook-hotplug.rules   
 40-vm-hotadd.rules
 
  When udev is notified by the kernel of the appearance of a new device, it collects various information on the given device by consulting the corresponding entries in /sys/, especially those that uniquely identify it (MAC address for a network card, serial number for some USB devices, etc.).
 Armed with all of this information, udev then consults all of the rules contained in /etc/udev/rules.d/ and /lib/udev/rules.d/. In this process it decides how to name the device, what symbolic links to create (to give it alternative names), and what commands to execute. All of these files are consulted, and the rules are all evaluated sequentially   Source: https://debian-handbook.info/browse/stable/sect.hotplug.html
 
-In short: creates new mouse device in /dev/input
+In short: creates new mouse device in /dev/input  
 
 *Remove the volume (detach it via OpenStack User Interface) created for the IO performance testing
 before and look for changes in the /sys and /dev directory.*  
 
-
+vdb and vdb1 are no longer visible in /dev
 
 
 
