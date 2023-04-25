@@ -222,11 +222,29 @@ the “uevent” file for the block device (volume) created for the IO performan
 ```
 cd /sys/block/vdb/vdb1
 ```
+```
+vim uevent
+```
+MAJOR=252  
+MINOR=17  
+DEVNAME=vdb1  
+DEVTYPE=partition  
+PARTN=1  
+
+
+MAJOR/MINOR: device identifier  
+PARTN: partition index  
 
 
 
 *Enter the /dev directory and look for the device file that represents the volume. What can you see
-from the file attributes?*  
+from the file attributes?*
+```
+ls -l
+```
+brw-rw---- 1 root disk    252,  16 Apr 25 15:14 vdb
+
+b = block device rw = read and write  
 
 *UDEV uses /sys to create devices files in /dev upon the appearance (e.g. hotplugged) of a device.
 List the rule files of UDEV that define this on-demand behavior. What happens if you attach a mouse
