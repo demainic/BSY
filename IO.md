@@ -138,7 +138,7 @@ sudo mkfs.ext4 /dev/vdb1
 sudo mkdir /mnt
 sudo mount /dev/vdb1 /mnt
 ```
-6. In the new partition he 10gb files cant be created:
+6. In the new partition the 10gb files can be created:
 
 ```
 sudo dd if=/dev/zero of=/mnt/file1 bs=1G count=10
