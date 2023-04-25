@@ -298,6 +298,21 @@ iostat -d -h -m -p [device]
 ```
 
 ● Investigate in the /proc file system where disk statistics are taken by iostat for display.  
+```
+root@lab-io:/proc# cat diskstats
+   7       0 loop0 1654 0 3894 9260 0 0 0 0 0 1084 7328 0 0 0 0
+   7       1 loop1 15157 0 30906 13717 0 0 0 0 0 2400 8804 0 0 0 0
+   7       2 loop2 69 0 2102 659 0 0 0 0 0 412 576 0 0 0 0
+   7       3 loop3 2 0 10 0 0 0 0 0 0 8 0 0 0 0 0
+   7       4 loop4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       5 loop5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       6 loop6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       7 loop7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 252       0 vda 8592 1887 685628 54594 2230 4024 2679330 20797 0 48012 62752 0 0 0 0
+ 252       1 vda1 7385 1887 661142 52729 2203 4016 2679248 19950 0 47232 61088 0 0 0 0
+ 252      14 vda14 214 0 1960 134 0 0 0 0 0 200 20 0 0 0 0
+ 252      15 vda15 886 0 17966 1647 2 0 2 0 0 672 776 0 0 0 0
+ ```
 ● What is the await field and why is it important?  
   The average time (in milliseconds) for I/O requests  issued to the device to be served.   
   This includes  the time spent by the requests in queue and the time spent servicing them.    
