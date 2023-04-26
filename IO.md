@@ -220,22 +220,21 @@ The code perform a non-blocking I/O operation. It waits for 5 seconds to get use
 the “uevent” file for the block device (volume) created for the IO performance task.*
 
 ```
-cd /sys/block/vdb/vdb1
+cd /sys/block/vdb
 ```
 ```
 cat uevent
 ```
-MAJOR=252  
-MINOR=17  
-DEVNAME=vdb1  
-DEVTYPE=partition  
-PARTN=1  
+MAJOR=252
+MINOR=16
+DEVNAME=vdb
+DEVTYPE=disk  
 
 
 MAJOR: identifies the driver  
 MINOR: if a driver controls several devices the minor number provides a way for the driver to differentiate among them  
-PARTN: partition index    
-
+DEVNAME: device name  
+DEVTYPE: device type  
 
 
 *Enter the /dev directory and look for the device file that represents the volume. What can you see
@@ -246,7 +245,7 @@ ls -l | grep vdb
 brw-rw---- 1 root disk    252,  16 Apr 25 15:14 vdb  
 brw-rw---- 1 root disk    252,  17 Apr 25 15:15 vdb1
 
-b = block device rw = read and write, vdb1 = 1 partition  
+b = block device rw = read and write, 252: MAJOR (driver id)  
 
 *UDEV uses /sys to create devices files in /dev upon the appearance (e.g. hotplugged) of a device.
 List the rule files of UDEV that define this on-demand behavior. What happens if you attach a mouse
@@ -258,8 +257,12 @@ as IO input device?*
 10-cloud-init-hook-hotplug.rules   
 40-vm-hotadd.rules
 
+For the mouse:
+70-mouse.rules
+
  When udev is notified by the kernel of the appearance of a new device, it collects various information on the given device by consulting the corresponding entries in /sys/, especially those that uniquely identify it (MAC address for a network card, serial number for some USB devices, etc.).
-Armed with all of this information, udev then consults all of the rules contained in /etc/udev/rules.d/ and /lib/udev/rules.d/. In this process it decides how to name the device, what symbolic links to create (to give it alternative names), and what commands to execute. All of these files are consulted, and the rules are all evaluated sequentially   Source: https://debian-handbook.info/browse/stable/sect.hotplug.html
+Armed with all of this information, udev then consults all of the rules contained in /etc/udev/rules.d/ and /lib/udev/rules.d/. In this process it decides how to name the device, what symbolic links to create (to give it alternative names), and what commands to execute. All of these files are consulted, and the rules are all evaluated sequentially   
+Source: https://debian-handbook.info/browse/stable/sect.hotplug.html
 
 In short: creates new mouse device in /dev/input  
 
