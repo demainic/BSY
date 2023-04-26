@@ -315,8 +315,9 @@ root@lab-io:/proc# cat diskstats
  252      15 vda15 886 0 17966 1647 2 0 2 0 0 672 776 0 0 0 0
  ```
 ● What is the await field and why is it important?  
-  The average time (in milliseconds) for I/O requests  issued to the device to be served.   
-  This includes  the time spent by the requests in queue and the time spent servicing them.    
+  The average time (in milliseconds) for I/O requests issued to the device to be served.   
+  This includes  the time spent by the requests in queue and the time spent servicing them.
+  A high await time would show, that the disk can't keep up with the requests.
  
 ● If rqm/s is > 0 what does this indicate? What does it hint about the workload?  
 The number of I/O requests merged per second that were queued to the device. Indicates a higher workload
