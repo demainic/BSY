@@ -232,7 +232,8 @@ DEVTYPE=partition
 PARTN=1  
 
 
-MAJOR/MINOR: device identifier  
+MAJOR: identifies the driver
+MINOR: if a driver controls several devices the minor number provides a way for the driver to differentiate among them
 PARTN: partition index  
 
 
