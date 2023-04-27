@@ -291,6 +291,7 @@ MB_wrtn:    The total number of megabytes written since system was booted.
 MB_dscd/s:  The amount of discarded requests in megabyte per second.   
 MB_dscd:    The amount of discarded requests in megabyte since system was booted.
 
+
 ● How can you only show one specific device?
 ```
 iostat -d -h -m [device]
@@ -298,8 +299,9 @@ iostat -d -h -m [device]
 ● How can you show further extended details of that specific device i.e. sub-devices (hint:
 /proc)?
 ```
-iostat -d -h -m -p [device]
+iostat -d -h -m -p -x [device]
 ```
+- p for partition -x for extended
 
 ● Investigate in the /proc file system where disk statistics are taken by iostat for display.  
 ```
