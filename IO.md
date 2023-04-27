@@ -245,7 +245,7 @@ ls -l | grep vdb
 brw-rw---- 1 root disk    252,  16 Apr 25 15:14 vdb  
 brw-rw---- 1 root disk    252,  17 Apr 25 15:15 vdb1
 
-b = block device rw = read and write, 252: MAJOR (driver id)  
+b = block device rw = read and write, 252: MAJOR (driver id), 16: MINOR  
 
 *UDEV uses /sys to create devices files in /dev upon the appearance (e.g. hotplugged) of a device.
 List the rule files of UDEV that define this on-demand behavior. What happens if you attach a mouse
