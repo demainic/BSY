@@ -225,10 +225,10 @@ cd /sys/block/vdb
 ```
 cat uevent
 ```
-MAJOR=252
-MINOR=16
-DEVNAME=vdb
-DEVTYPE=disk  
+MAJOR=252  
+MINOR=16  
+DEVNAME=vdb  
+DEVTYPE=disk    
 
 
 MAJOR: identifies the driver  
