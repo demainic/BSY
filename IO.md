@@ -184,6 +184,24 @@ Ignore failure to set requested priority. If COMMAND or PID(s) is specified, run
 
 (from https://linux.die.net/man/1/ionice)
 
+**Schedulers**
+IO scheduler are used to schedule operations between storage devices and operating system. They are set per device. To view th currently used scheduler, you can use this command:
+
+```
+cat /sys/block/<device>/queue/scheduler 
+```
+The <device> ist replaced with the desired block device, ex. "sda".
+  
+IO Scheduler can support priorities. When using ionice the the priority for best-effort is 4 by default.
+The Priorites are depending on the class. While best effort has priority 0-7, the realtime class has 8 priority levels.
+The best priority is 0 and it gets worse the higher the number is.
+
+Here an example to set a command with the highest priority:
+```
+  ionice -c 4 -n 0 <command>
+```
+Class best effort an priority 0 is set for <command>.
+
 *Blocking and Non-Blocking Devices
 Interpret and understand the code below. What is the use case of the function select()?*
 ```
