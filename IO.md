@@ -8,7 +8,7 @@ Overview about the available hardware in your system
 
 ``` 
   lspci
-  ``` 
+``` 
 ![grafik](https://user-images.githubusercontent.com/127535426/233587077-b9474ce3-b9e0-47b1-be70-759db509b65c.png)
 ``` 
   lshw bridge
@@ -39,9 +39,9 @@ The "Virtio" states, that as an example the "Ethernet controller" is a virtual I
 *Understand the output of /proc/interrupts and discuss the columns in detail.*
 
 Use the following to open /proc/interrupts:
-``
+```
 vim /proc/interrupts
-``
+```
 ![Screenshot from 2023-04-21 11-11-16](https://user-images.githubusercontent.com/79651776/233596592-f1ffd7bc-7fd1-4058-ba6e-d12fd5cb0cb8.png)
 
 1. CPU: Shows the the number of interupts per CPU
@@ -127,7 +127,7 @@ sudo fdisk /dev/vdb
 ```
 ![image](https://user-images.githubusercontent.com/79651776/234096199-2bcc3512-7e02-4230-a5bb-a03e671b5365.png)
 
-4. Now the new partition should be formated:
+4. Now the new partition should be formatted:
 ```
 sudo mkfs.ext4 /dev/vdb1
 ```
@@ -153,8 +153,8 @@ text file and execute the text file (aka bash script file) on the shell. Once lo
 performance. Discuss the results and verify your understanding*
 
 
-This Command creates a file named "testfile_n". The if option sets the input file, in this case alle zeros. The of sets the output file. bs = blocksize and count = number of blocks.
-To Use this command first you neet to create the folder and five the ubuntu user ownership. To make it parallel you can use a loop:
+This Command creates a file named "testfile_n". The if option sets the input file, in this case all zeros. The of sets the output file. bs = blocksize and count = number of blocks.
+To Use this command first you need to create the folder and five the ubuntu user ownership. To make it parallel you can use a loop:
 
 ```
 sudo mkdir /mnt/iotest
