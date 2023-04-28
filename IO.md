@@ -271,6 +271,7 @@ as IO input device?*
  
 ```cd /lib/udev/rules.d/```
   
+```ls```  
 
 01-md-raid-creating.rules         60-persistent-storage-tape.rules      70-uaccess.rules
 10-cloud-init-hook-hotplug.rules  60-persistent-storage.rules           71-power-switch-proliant.rules
@@ -297,11 +298,6 @@ as IO input device?*
 60-persistent-input.rules         70-power-switch.rules                 99-vmware-scsi-udev.rules
 60-persistent-storage-dm.rules    70-touchpad.rules
   
-  
-```ls | grep hot```  
-
-10-cloud-init-hook-hotplug.rules   
-40-vm-hotadd.rules
 
 For the mouse:
 70-mouse.rules
