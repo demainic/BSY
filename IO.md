@@ -269,7 +269,35 @@ b = block device rw = read and write, 252: MAJOR (driver id), 16: MINOR
 List the rule files of UDEV that define this on-demand behavior. What happens if you attach a mouse
 as IO input device?*
  
-```cd /lib/udev/rules.d/```  
+```cd /lib/udev/rules.d/```
+  
+
+01-md-raid-creating.rules         60-persistent-storage-tape.rules      70-uaccess.rules
+10-cloud-init-hook-hotplug.rules  60-persistent-storage.rules           71-power-switch-proliant.rules
+40-vm-hotadd.rules                60-persistent-v4l.rules               71-seat.rules
+50-apport.rules                   60-sensor.rules                       73-seat-late.rules
+50-firmware.rules                 60-serial.rules                       73-special-net-names.rules
+50-udev-default.rules             60-tpm-udev.rules                     75-net-description.rules
+55-dm.rules                       61-autosuspend-manual.rules           75-probe_mtd.rules
+55-scsi-sg3_id.rules              61-persistent-storage-android.rules   78-graphics-card.rules
+56-dm-mpath.rules                 63-md-raid-arrays.rules               78-sound-card.rules
+56-dm-parts.rules                 64-btrfs-dm.rules                     80-debian-compat.rules
+56-lvm.rules                      64-btrfs.rules                        80-drivers.rules
+58-scsi-sg3_symlink.rules         64-md-raid-assembly.rules             80-net-setup-link.rules
+60-autosuspend-chromiumos.rules   66-azure-ephemeral.rules              80-udisks2.rules
+60-block.rules                    66-snapd-autoimport.rules             81-net-dhcp.rules
+60-cdrom_id.rules                 68-del-part-nodes.rules               85-hdparm.rules
+60-drm.rules                      69-bcache.rules                       90-bolt.rules
+60-evdev.rules                    69-lvm-metad.rules                    90-console-setup.rules
+60-fido-id.rules                  69-md-clustered-confirm-device.rules  90-fwupd-devices.rules
+60-input-id.rules                 70-iscsi-disk.rules                   95-dm-notify.rules
+60-multipath.rules                70-iscsi-network-interface.rules      95-kpartx.rules
+60-open-vm-tools.rules            70-joystick.rules                     96-e2scrub.rules
+60-persistent-alsa.rules          70-mouse.rules                        99-systemd.rules
+60-persistent-input.rules         70-power-switch.rules                 99-vmware-scsi-udev.rules
+60-persistent-storage-dm.rules    70-touchpad.rules
+  
+  
 ```ls | grep hot```  
 
 10-cloud-init-hook-hotplug.rules   
