@@ -69,14 +69,14 @@ analyze IO performance, like iostat and iotop. Familiarize yourself with these t
 and understanding their outputs.*
 
 ```
-iostat
+iotop
 ```
 
 ![Screenshot from 2023-04-21 11-39-33](https://user-images.githubusercontent.com/79651776/233603220-afd8ef69-eb58-4593-b43e-37aa5c637395.png)
 
 
 ```
-iotop
+iostat
 ```
 
 ![Screenshot from 2023-04-21 11-38-27](https://user-images.githubusercontent.com/79651776/233603006-0b712851-061a-4a0d-8e69-f18c36d5ec04.png)
